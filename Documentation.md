@@ -1,29 +1,27 @@
 ## CIPRES
-Understanding the evolutionary history of living organisms. 
+
 CIPRES Science Gateway, a web portal designed to provide researchers with transparent access to the fastest available community codes 
-for inference of phylogenetic relationships, and implementation of these codes on scalable computational resources.
-In an attempt to meet community needs for access to tools and resources for inferring evolutionary relationships, 
-the CIPRES (CyberInfrastructure for Phylogenetic RESearch) project created a prototype web portal. 
-The CIPRES Portal V 1.0 permitted users to run the community tree inference tools GARLI [9], RAxML [10], PAUP [11], and MrBayes [12], 
-both as standalone tools, and with the tool Rec-I-DCM3, a disc covering method to speed and improve inference of large trees [13]. 
-The demand for Tree Inference analyses on the CIPRES Portal quickly exceeded the computational resources available to the project, 
-pointing to a need to redesign the CIPRES Portal for greater scalability while minimizing costs for the sake of sustainability
+for inference of phylogenetic relationships, and implementation of these codes on scalable computational resources. 
 
-
+We are analysing evolutionary history of SARS-CoV-2 genomes.
 
 ## Data description
 
-Genome - 
+Genome - fasta format SARS-CoV2 genomes.
 
-Genes -
+Genes - SARS-CoV-2 genes.
 
-Alignment output (whole genome phylogeny) - 
+Alignment output (whole genome phylogeny) - fasta format alignment file of SARS-CoV-2 genomes. 
 
 ## Implementation
 
 ### Phylogenetic Reconstruction
 
-Sequences with less than 20 Kbp were discarded (there are a lot of short sequences).
+Entire construct is a two-step process.
+
+1. Alignment
+
+2. iTOL tree generation and visualisatiion.
 
 Steps:
 
@@ -61,21 +59,22 @@ cipresrun \
 ```
 Command-line parameters:
 
+[MAFFT_xsede parameters details](http://www.phylo.org/index.php/rest/mafft_xsede.html)
+
 ```
--t MAFFT_XSEDE -
+-t MAFFT_XSEDE - tool name i.e MAFFT_XSEDE
 
--p vparam.anysymbol_=1 -
+-p vparam.anysymbol_=1 - key-value paired configuration parameter for tool. Anysymbol for unusal characters. Default value 0.
 
--i <infile> -
+-i <infile> - path to unaligned fasta files.
 
--y cipres_appinfo.yml -
+-y cipres_appinfo.yml - YML format configuration file.
 
--o output.mafft=/path/to/outfile.fasta -
+-o output.mafft=/path/to/outfile.fasta - path along with aligned file name.
 
 ```
 
 - Inferring trees 
-
 
 
 Command-line usage:
@@ -93,30 +92,32 @@ cipresrun \
     -y cipres_appinfo.yml \    
     -o output.contree=/path/to/tree.dnd
 ```
-Command-line parameters
+Command-line parameters:
+
+[IQTREE_XSEDE parameter details](http://www.phylo.org/index.php/rest/iqtree_xsede.html)  
 
 ```
--t IQTREE_XSEDE  -
+-t IQTREE_XSEDE  - tool name i.e IQTREE_XSEDE 
 
--p vparam.anysymbol_=1 -
+-p vparam.anysymbol_=1 - key-value paired configuration parameter for tool. Anysymbol for unusal characters. Default value 0.
 
--p vparam.specify_runtype_=2 -
+-p vparam.specify_runtype_=2 - Specify the nrun type - 2 for Tree Inference.
 
--p vparam.specify_dnamodel_=HKY -
+-p vparam.specify_dnamodel_=HKY -Specify a DNA model i.e HKY.
 
--p vparam.bootstrap_type_=bb -
+-p vparam.bootstrap_type_=bb - Bootstrap Type.
 
--p vparam.use_bnni_=1 -
+-p vparam.use_bnni_=1 - 
 
--p vparam.num_bootreps_=1000 -
+-p vparam.num_bootreps_=1000 - Specify number of bootstrap replicates (>=1000).
 
--p vparam.specify_numparts_=1 -
+-p vparam.specify_numparts_=1 - How many partitions does your data set have.
 
--i <infile> -
+-i <infile> - fasta format file for aligned trees.
 
--y cipres_appinfo.yml -
+-y cipres_appinfo.yml - YML format configuration file.
 
--o output.contree=/path/to/tree.dnd
+-o output.contree=/path/to/tree.dnd - output file along with storage path or location.
 
 ```
 
