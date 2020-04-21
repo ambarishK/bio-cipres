@@ -120,7 +120,26 @@ Command-line parameters
 
 ```
 
-Command-line implementation of ciprusrun
+Command-line implementation of two step phylogenetic reconstructs
+
+To align sequences in a FASTA file with MAFFT:
+
+```
+cipresrun \ -t MAFFT_XSEDE \ -p vparam.anysymbol_=1 \ -i <infile> \ -y cipres_appinfo.yml \ -o output.mafft=/path/to/outfile.fasta 
+
+```
+
+To infer trees from an aligned FASTA file using IQTree:
+
+
+```
+cipresrun \ -t IQTREE_XSEDE \ -p vparam.specify_runtype_=2 \ -p vparam.specify_dnamodel_=HKY \ -p vparam.bootstrap_type_=bb \ -p vparam.use_bnni_=1 \ -p vparam.num_bootreps_=1000 \ -p vparam.specify_numparts_=1 \ -i /path/to/outfile.fasta \ -y cipres_appinfo.yml \ 
+-o output.contree=/path/to/tree.dnd 
+
+```
+
+
+
 
 
 
