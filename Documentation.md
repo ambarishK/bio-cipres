@@ -45,9 +45,22 @@ cipresrun \
      -y cipres_appinfo.yml \
      -o output.mafft=/path/to/outfile.fasta
 ```
+Command-line parameters:
 
+```
+-t MAFFT_XSEDE -
+
+-p vparam.anysymbol_=1 -
+
+-i <infile> -
+
+-y cipres_appinfo.yml -
+
+-o output.mafft=/path/to/outfile.fasta -
 
 - Inferring trees 
+
+```
 
 Command-line usage:
 
