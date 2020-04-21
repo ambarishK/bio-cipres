@@ -34,15 +34,19 @@ iTOL tree visualization
 
 ```
 
-cipreusrun is ...
+cipreusrun is command line interface to the CIPRES analysis portal.
 
-Perl module and dependencies
+https://metacpan.org/source/RVOSA/Bio-Phylo-CIPRES-v0.2.1/README.md
 
 https://github.com/naturalis/bio-cipres/tree/master/conda/perl-bio-phylo-cipres/v0.2.1
 
-https://github.com/naturalis/bio-cipres/blob/master/lib/Bio/Phylo/CIPRES.pm
+Perl module and dependencies
 
+[Bio::Phylo::CIPRES](https://metacpan.org/pod/release/RVOSA/Bio-Phylo-CIPRES-v0.2.1/lib/Bio/Phylo/CIPRES.pm) - Reusable components for CIPRES REST API access 
 
+[meta CPAN repository for cipresrun](https://metacpan.org/pod/distribution/Bio-Phylo-CIPRES/script/cipresrun)
+
+[GitHub repository for cipresrun](https://github.com/naturalis/bio-cipres/blob/master/lib/Bio/Phylo/CIPRES.pm)
 
 
 - Aligning sequences
