@@ -21,5 +21,53 @@ Genome -
 
 Genes -
 
-Alignment output -
+Alignment output (whole genome phylogeny) - 
+
+## Implementation
+Perl module and dependencies
+
+https://github.com/naturalis/bio-cipres/tree/master/conda/perl-bio-phylo-cipres/v0.2.1
+
+https://github.com/naturalis/bio-cipres/blob/master/lib/Bio/Phylo/CIPRES.pm
+
+Command-line implementation
+cipreusrun is ...
+
+- Aligning sequences
+
+Command-line usage:
+
+```
+cipresrun \
+     -t MAFFT_XSEDE \
+     -p vparam.anysymbol_=1 \
+     -i <infile> \
+     -y cipres_appinfo.yml \
+     -o output.mafft=/path/to/outfile.fasta
+```
+
+
+- Inferring trees 
+
+Command-line usage:
+
+```
+cipresrun \
+    -t IQTREE_XSEDE \
+    -p vparam.specify_runtype_=2 \
+    -p vparam.specify_dnamodel_=HKY \
+    -p vparam.bootstrap_type_=bb \
+    -p vparam.use_bnni_=1 \
+    -p vparam.num_bootreps_=1000 \
+    -p vparam.specify_numparts_=1 \
+    -i /path/to/outfile.fasta \
+    -y cipres_appinfo.yml \    
+    -o output.contree=/path/to/tree.dnd
+```
+
+
+
+
+
+
 
