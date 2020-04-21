@@ -11,12 +11,20 @@ pointing to a need to redesign the CIPRES Portal for greater scalability while m
 
 ## Phylogenetic Reconstruction
 Sequences with less than 20 Kbp were discarded (there are a lot of short sequences).
+
 Steps:
+
+```
 mafft --anysymbol sequences > alignment
+
 iqtree -s alignment -alrt 1000 -nt 4
+
 iTOL tree visualization
 
+```
+
 ## Data description
+
 Genome - 
 
 Genes -
@@ -24,6 +32,7 @@ Genes -
 Alignment output (whole genome phylogeny) - 
 
 ## Implementation
+
 Perl module and dependencies
 
 https://github.com/naturalis/bio-cipres/tree/master/conda/perl-bio-phylo-cipres/v0.2.1
@@ -31,6 +40,7 @@ https://github.com/naturalis/bio-cipres/tree/master/conda/perl-bio-phylo-cipres/
 https://github.com/naturalis/bio-cipres/blob/master/lib/Bio/Phylo/CIPRES.pm
 
 Command-line implementation
+
 cipreusrun is ...
 
 - Aligning sequences
@@ -58,9 +68,11 @@ Command-line parameters:
 
 -o output.mafft=/path/to/outfile.fasta -
 
+```
+
 - Inferring trees 
 
-```
+
 
 Command-line usage:
 
@@ -77,7 +89,32 @@ cipresrun \
     -y cipres_appinfo.yml \    
     -o output.contree=/path/to/tree.dnd
 ```
+Command-line parameters
 
+```
+-t IQTREE_XSEDE  -
+
+-p vparam.anysymbol_=1 -
+
+-p vparam.specify_runtype_=2 -
+
+-p vparam.specify_dnamodel_=HKY -
+
+-p vparam.bootstrap_type_=bb -
+
+-p vparam.use_bnni_=1 -
+
+-p vparam.num_bootreps_=1000 -
+
+-p vparam.specify_numparts_=1 -
+
+-i <infile> -
+
+-y cipres_appinfo.yml -
+
+-o output.contree=/path/to/tree.dnd
+
+```
 
 
 
