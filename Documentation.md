@@ -9,7 +9,20 @@ both as standalone tools, and with the tool Rec-I-DCM3, a disc covering method t
 The demand for Tree Inference analyses on the CIPRES Portal quickly exceeded the computational resources available to the project, 
 pointing to a need to redesign the CIPRES Portal for greater scalability while minimizing costs for the sake of sustainability
 
-## Phylogenetic Reconstruction
+
+
+## Data description
+
+Genome - 
+
+Genes -
+
+Alignment output (whole genome phylogeny) - 
+
+## Implementation
+
+### Phylogenetic Reconstruction
+
 Sequences with less than 20 Kbp were discarded (there are a lot of short sequences).
 
 Steps:
@@ -23,15 +36,7 @@ iTOL tree visualization
 
 ```
 
-## Data description
-
-Genome - 
-
-Genes -
-
-Alignment output (whole genome phylogeny) - 
-
-## Implementation
+cipreusrun is ...
 
 Perl module and dependencies
 
@@ -39,9 +44,8 @@ https://github.com/naturalis/bio-cipres/tree/master/conda/perl-bio-phylo-cipres/
 
 https://github.com/naturalis/bio-cipres/blob/master/lib/Bio/Phylo/CIPRES.pm
 
-Command-line implementation
 
-cipreusrun is ...
+
 
 - Aligning sequences
 
@@ -116,7 +120,7 @@ Command-line parameters
 
 ```
 
-
+Command-line implementation of ciprusrun
 
 
 
